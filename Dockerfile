@@ -14,4 +14,4 @@ COPY predict_api.py .
 COPY app/buy_computer_data.csv app/
 
 # Default command (can override with CMD in docker-compose)
-CMD ["uvicorn", "services.data_loader.load_data:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["uvicorn", "services.data_loader.load_data:app", "--host", "0.0.0.0", "--port", "8002"]

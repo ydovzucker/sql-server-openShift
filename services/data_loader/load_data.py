@@ -37,4 +37,8 @@ class Connection:
 
 
 
-
+        @app.get("/sql")
+        def get_all_table(self):
+            conn = self.conn.connect()
+            res = conn.execute(f"SELECT * FROM {self.table}")
+            return {"result" : res}
