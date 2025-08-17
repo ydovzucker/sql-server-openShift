@@ -1,0 +1,12 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: fastapi-data-loader
+spec:
+  to:
+    kind: Service
+    name: fastapi-data-loader
+  port:
+    targetPort: 8002
+  tls:
+    termination: edge

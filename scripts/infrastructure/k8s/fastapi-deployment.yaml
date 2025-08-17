@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fastapi-data-loader
+  labels:
+    app: fastapi-data-loader
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: fastapi-data-loader
+  template:
+    metadata:
+      labels:
+        app: fastapi-data-loader
+    spec:
+      containers:
+      - name: fastapi-data-loader
+        image: kodekod2025/fastapi-data-loader:latest
+        ports:
+        - containerPort: 8002
+        env:
+          - name: MYSQL_TABLE
+            value: data
+          - name: MYSQL_HOST
+            value: mysql
+          - name: MYSQL_USER
+            value: myuser
+          - name: MYSQL_PASSWORD
+            value: mypassword
+          - name: MYSQL_DATABASE
+            value: mydb
